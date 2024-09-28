@@ -1,21 +1,23 @@
-from vehicle import Vehicle
+from account import Account
   
 class ParkingSpot:
     def __init__(self, id):
         self.spot_number = id
-        self.parked_vehicle = None
+        self.parked_account = None
 
     def get_availability(self):
-        return self.parked_vehicle==None
+        return self.parked_account==None
     
-    def set_vehicle(self, vehicle: Vehicle):
-        self.parked_vehicle = vehicle
+    def set_vehicle(self, account: Account):
+        self.parked_account = account
     
     def get_vehicle(self):
-        if self.parked_vehicle==None:
+        if self.parked_account==None:
             return "Empty"
         
-        return self.parked_vehicle.get_vehicle_number()
+        return self.parked_account.get_account()
     
     def remove_vehicle(self):
-        self.parked_vehicle = None
+        ans = self.parked_account.end_account()
+        self.parked_account = None
+        return ans

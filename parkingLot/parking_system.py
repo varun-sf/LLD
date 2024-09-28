@@ -1,5 +1,6 @@
 from parking_lot import ParkingLot
 from vehicle import Vehicle
+from account import Account
 
 class ParkingSystem:
     _instance = None
@@ -19,7 +20,9 @@ class ParkingSystem:
         self.parking_lot.add_level(num,capacity)
     
     def set_park_vehicle(self, vehicle: Vehicle)-> bool:
-        return self.parking_lot.set_park_vehicle(vehicle)
+        # Create account
+        account = Account(vehicle)
+        return self.parking_lot.set_park_vehicle(account)
     
     def unpark_vehicle(self, vehicle_no):
         return self.parking_lot.unpark_vehicle(vehicle_no)
